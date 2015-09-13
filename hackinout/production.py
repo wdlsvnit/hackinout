@@ -95,6 +95,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
             'read_default_file': '/home/inout/hackinout/db.cnf',
+            'init_command': 'SET storage_engine=INNODB',
         },
     }
 }
