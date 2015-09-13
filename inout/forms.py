@@ -1,8 +1,8 @@
 from django import forms
 
-from inout.models import InoutUserLinks
+from inout.models import InoutUserLink
 
 class InoutUserForm(forms.ModelForm):
     class Meta:
-        model = InoutUserLinks
+        model = InoutUserLink
         exclude = ['inout_user']
