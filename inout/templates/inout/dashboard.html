@@ -1,0 +1,8 @@
+{% load crispy_forms_tags %}
+
+{{ user.email }}
+<form method="post" action="/accounts/profile/" enctype="multipart/form-data" class="bootstrap3">
+  {% csrf_token %}
+{{ form|crispy}}
+<button type="submit">Submit</button>
+</form>

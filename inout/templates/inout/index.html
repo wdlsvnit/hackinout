@@ -1,0 +1,282 @@
+{% extends base.html %}
+{% block content %}
+<!-- The main landing section -->
+<section class="section__main">
+  <div class="content">
+      <!-- <img src="images/main_inout_logo.png" height="495" width="494" alt="InOut is back"  id = "main_logo"> -->
+      <div id="main_logo"></div>
+      <!-- Location and date -->
+      <div class="location_and_date">
+      <center>
+        31 OCTOBER - 1 NOVEMBER 2015&nbsp;&nbsp;<span class "green_text">|</span>&nbsp;&nbsp;NIT SURAT
+      </div>
+      </center>
+
+      <!-- All The background circles here  -->
+      <div class="bg_circle__one"></div>
+      <div class="bg_circle__two"></div>
+      <div class="bg_circle__three"></div>
+      <div class="bg_circle__four"></div>
+      <!-- <div class="bg_circle__five"></div> -->
+      <!-- End of all the background circles -->
+      <!-- Apply now button -->
+      {% if user and not app_status %}
+      <div class = "button__applynow">Under review.</div>
+      {% elif user and app_status %}
+      <div class = "button__applynow">Approved.</div>
+      {% else %}
+      <a href="/accounts/login/mlh/"><div class = "button__applynow">APPLY NOW</div></a>
+      {% endif %}
+      </div>
+
+    </section>
+{% endblock %}
+
+{% block about %}
+<!-- The about section -->
+<section class = "section__about">
+  <div class="content__about">
+      <center><h1 class = "title">ABOUT THE EVENT</h1></center>
+      <div class="description">
+          <h2>What's a Hackathon?</h2>
+          <p class = "content_text_normal">
+            A Hackathon is a collaboration of programmers and designers to code, design and build innovative solutions to real life problems, through extensive coding in a short time duration. Hackathons are great way to promote innovation among students by bringing in cutting-edge problem statements. See this for a good explanation.
+            <br/>
+            <br/>
+            Your only constraint is: You only have 30 hours.
+          </p>
+          <h2>NIT Surat's foremost Hackathon.</h2>
+          <p class="content_text_normal">
+            Hackathons provide a venue for self-expression and creativity through technology. People with technical backgrounds come together, form teams around a problem or idea, and collaboratively code a unique solution from scratch - these generally take shape in the form of websites, mobile apps, and robots. So prepare yourself for a weekend filled with learning new technologies, building amazing products and making new friends all within the span of 30 hours.
+          </p>
+
+          <h2>Everyone is welcome.</h2>
+          <p class = "content_text_normal">
+          Whether you're making your first website, hacking Oculus Rift to censor real world ads, or creating something fun; InOut is for you. We'll have great workshops, mentors, and more!
+          <br/>
+          We will allow you to show your coding skills without getting worried about any mortal needs. We will take care of everything.
+          </p>
+      </div>
+      </div>
+    </section>
+
+{% endblock %}
+
+
+{% block faq %}
+   <!-- The faq section -->
+  <section class = "section__faq">
+    <center><h1 class = "title">F.A.Q</h1></center>
+    <div class="description">
+      <div class="content__faq">
+        <div class="row">
+          <div class="col-lg-6 faq__left">
+            <h2>What if I don't have a team or an idea?</h2>
+            <p class="content_text_normal">
+              Don't worry! You still have time to find one. Check out our FB group!
+            </p>
+            <h2>How much will it cost?</h2>
+            <p class="content_text_normal">
+              InOut is free for all accepted hackers. We'll provide you with a weekend's worth of swag, meals, drinks, and snacks and a place to crash when you need a break from coding.
+            </p>
+            <h2>What's the application process like?</h2>
+            <p class="content_text_normal">
+              We're looking for creative and innovative people with a set of skills that can contribute to a project: mobile, web, hardware, design, or anything else really cool. We generally prefer people that have proven their abilities in previous projects, evident through Github links, project descriptions, or participation/awards in other hackathons.
+            </p>
+            <h2>How big can a team be?</h2>
+            <p class="content_text_normal">
+              This hackathon is strictly a team competition. No lone crusaders please. <b>Max team size : 3 members.</b>
+            </p>
+          </div>
+          <div class="col-lg-6 faq__right">
+            <h2>What if I don't know how to code?</h2>
+            <p class="content_text_normal">
+              Whether you are a complete amateur eager to learn, or a designer who wants to get your head round development a little more, we will take you through step by step. We can help you to learn!
+            </p>
+            <h2>Who can attend?</h2>
+            <p class="content_text_normal">
+              All the coolest people interested in tech will be there. Open to all! Any undergraduate and graduate student or Developers from anywhere in India and outside.
+            </p>
+            <h2>Once I get accepted, what do I need to bring?</h2>
+            <p class="content_text_normal">
+              Laptop and charger, cellphone and charger, extension, water-bottle, student ID/employee ID, a sleeping bag if needed and nerdy t-shirt!
+            </p>
+            <h2>What can I build?</h2>
+            <p class="content_text_normal">
+              Pretty much anything you want. We will allow you to show your coding skills by giving a problem statement/theme.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endblock %}
+  {% block schedule %}
+  <!-- The schedule section -->
+  <section class="section__schedule">
+    <div class="content__schedule">
+      <center>
+        <h1 class="title">SCHEDULE</h1>
+      </center>
+      <div class="description">
+        <div class="row">
+          <div class="col-lg-6 col-md-12 col-lg-offset-0 schedule__saturday">
+            <div class="schedule_card__saturday">
+              <h1 class="schedule_card--title">SATURDAY</h1>
+              <ul>
+                <li class = "schedule_card--single_schedule--saturday">
+                  <div class="row">
+                    <div class="col-md-6 schedule_card--time">
+                    9:00 AM to 11:00 AM
+                    </div>
+                    <div class="col-md-6 schedule_card--event">
+                    Team registrations
+                    </div>
+                  </div>
+                </li>
+                <li class = "schedule_card--single_schedule--saturday">
+                  <div class="row">
+                    <div class="col-md-6 schedule_card--time">
+                    11:00 AM to 12:00 PM
+                    </div>
+                    <div class="col-md-6 schedule_card--event">
+                    Opening ceremony
+                    </div>
+                  </div>
+                </li>
+                <li class = "schedule_card--single_schedule--saturday">
+                  <div class="row">
+                    <div class="col-md-6 schedule_card--time">
+                    12:00 PM to 1:00 PM
+                    </div>
+                    <div class="col-md-6 schedule_card--event">
+                    Lunch is served
+                    </div>
+                  </div>
+
+                </li>
+                <li class = "schedule_card--single_schedule--saturday">
+                  <div class="row">
+                    <div class="col-md-6 schedule_card--time">
+                    1:00 PM
+                    </div>
+                    <div class="col-md-6 schedule_card--event">
+                    Hacking begins
+                    </div>
+                  </div>
+
+                </li>
+                <li class = "schedule_card--single_schedule--saturday">
+                  <div class="row">
+                    <div class="col-md-6 schedule_card--time">
+                    7:00 PM to 8:00 PM
+                    </div>
+                    <div class="col-md-6 schedule_card--event">
+                    Dinner
+                    </div>
+                  </div>
+
+                </li>
+                <li class = "schedule_card--single_schedule--saturday">
+                  <div class="row">
+                    <div class="col-md-6 schedule_card--time">
+                    12:00 AM
+                    </div>
+                    <div class="col-md-6 schedule_card--event">
+                    Midnight snacks
+                    </div>
+                  </div>
+
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 schedule__sunday">
+            <div class="schedule_card__sunday">
+              <h1 class="schedule_card--title">SUNDAY</h1>
+               <ul>
+                <li class = "schedule_card--single_schedule--sunday">
+                  <div class="row">
+                    <div class="col-md-6 schedule_card--time">
+                    8:00 AM to 9:00 AM
+                    </div>
+                    <div class="col-md-6 schedule_card--event">
+                    Breakfast
+                    </div>
+                  </div>
+                </li>
+                <li class = "schedule_card--single_schedule--sunday">
+                  <div class="row">
+                    <div class="col-md-6 schedule_card--time">
+                    12:00 PM
+                    </div>
+                    <div class="col-md-6 schedule_card--event">
+                    Hacking ends
+                    </div>
+                  </div>
+                </li>
+                <li class = "schedule_card--single_schedule--sunday">
+                  <div class="row">
+                    <div class="col-md-6 schedule_card--time">
+                    12:00 PM to 2:00 PM
+                    </div>
+                    <div class="col-md-6 schedule_card--event">
+                    Lunch + Demo
+                    </div>
+                  </div>
+
+                </li>
+                <li class = "schedule_card--single_schedule--sunday">
+                  <div class="row">
+                    <div class="col-md-6 schedule_card--time">
+                    2:00 PM
+                    </div>
+                    <div class="col-md-6 schedule_card--event">
+                    Finalists announced
+                    </div>
+                  </div>
+
+                </li>
+                <li class = "schedule_card--single_schedule--sunday">
+                  <div class="row">
+                    <div class="col-md-6 schedule_card--time">
+                    2:00 PM to 3:30 PM
+                    </div>
+                    <div class="col-md-6 schedule_card--event">
+                    Closing ceremony
+                    </div>
+                  </div>
+
+                </li>
+                <li class = "schedule_card--single_schedule--sunday">
+                  <div class="row">
+                    <div class="col-md-6 schedule_card--time">
+                    4:00 PM
+                    </div>
+                    <div class="col-md-6 schedule_card--event">
+                    Good Bye!
+                    </div>
+                  </div>
+
+                </li>
+              </ul>
+            </div>
+          </di>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+{% block sponsor %}
+  <!-- The sponsor Section -->
+  <section class="section__sponsors">
+    <div class="content__sponsors">
+      <center><h1 class="title" >SPONSORS</h1></center>
+        <div class="description">
+          <p class = "content_text_normal">InOut  is the gateway between you and the top tech talent on the planet. Whether you come to network, promote brand awareness, or get feedback on a product or API, we will provide the tools you need to make the most out of your experience. <br><br>
+          Interested in sponsoring? Want more information?</p>
+          <a href="mailto:sponsorship@hackinout.co?subject=InOut%202.0%20Sponsorship%20Inquiry"><div class = "button__contact">sponsorship@hackinout.co</div></a>
+        </div>
+    </div>
+  </section>
+  {% endblock %}
