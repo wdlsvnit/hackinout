@@ -28,6 +28,8 @@ from django.contrib.auth.decorators import login_required
 
 def Index(request):
     user=request.user
+    if user.id==None:
+        return render(request,'inout/index.html',{'user':None,'app_status':False})
     inout_user_status=user.inoutuser.application_status
     try:
         profile_links=user.inoutuser.inoutuserlinks

@@ -1,8 +1,42 @@
+{% extends "base.html"  %}
 {% load crispy_forms_tags %}
+{% block nav %}
+  <nav>
+    <div class="nav-contents">
+      <div class="section_links">
+        <ul class = "navigation">
+          <li class = "active" ><a href="/">InOut</a></li>
+        </ul>
+      </div> <!-- End of section_links -->
+      <div class="social_links">
+        <a href = "https://www.facebook.com/inout.svnit" target = "_blank"><i class="fa fa-facebook fa-2x social_icon"></i></a>
+        <a href = "https://twitter.com/inout_svnit" target = "_blank"><i class="fa fa-twitter fa-2x social_icon"></i></a>
+        <a href = "https://medium.com/@InOut" target = "_blank"><i class="fa fa-medium fa-2x social_icon"></i></a>
+      </div> <!-- End of social_links -->
+    </div> <!-- End of nav-contents -->
+  </nav>
+  <div class="mobile-nav">
+    <!-- <a href="#" class="menu_icon"><i class="fa fa-bars fa-2x"></i></a> -->
+    <div id="toggle">
+      <div class="one"></div>
+      <div class="two"></div>
+      <div class="three"></div>
+    </div>
+    <ul id="mobile-menu" class="hide-menu navigation">
+      <li class = " active" data-target = "main">HOME</li>
+    </ul>
+  </div>
+{% endblock %}
 
-{{ user.email }}
+{% block content %}
+
+<section class="section__main">
+  <div class="content">
 <form method="post" action="/accounts/profile/" enctype="multipart/form-data" class="bootstrap3">
   {% csrf_token %}
 {{ form|crispy}}
-<button type="submit">Submit</button>
+<input class="btn btn-default" type="submit" value="Submit">
 </form>
+</div>
+</section>
+{% endblock %}
