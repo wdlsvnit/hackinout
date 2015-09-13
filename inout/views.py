@@ -21,7 +21,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 
-from inout.models import InoutUser,InoutUserLinks
+from inout.models import InoutUser,InoutUserLink
 from inout.forms import InoutUserForm
 
 from django.contrib.auth.decorators import login_required
@@ -32,8 +32,8 @@ def Index(request):
         return render(request,'inout/index.html',{'user':None,'app_status':False})
     inout_user_status=user.inoutuser.application_status
     try:
-        profile_links=user.inoutuser.inoutuserlinks
-    except InoutUserLinks.DoesNotExist:
+        profile_links=user.inoutuser.inoutuserlink
+    except InoutUserLink.DoesNotExist:
         return HttpResponseRedirect('/accounts/profile/')
 
     return render(request,'inout/index.html',{'user':request.user,'app_status':inout_user_status})
@@ -52,9 +52,9 @@ def UserDash(request):
             return HttpResponseRedirect('/')
     else:
         try:
-            profile_links=user.inoutuser.inoutuserlinks
+            profile_links=user.inoutuser.inoutuserlink
             return HttpResponseRedirect('/')
-        except InoutUserLinks.DoesNotExist:
+        except InoutUserLink.DoesNotExist:
             pass
         form = InoutUserForm()
 

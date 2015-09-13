@@ -25,7 +25,7 @@ class InoutUser(models.Model):
     full_name = property(_get_full_name)
     email = property(_get_email)
 
-class InoutUserLinks(models.Model):
+class InoutUserLink(models.Model):
     inout_user = models.OneToOneField(InoutUser)
     github_account=models.URLField()
     #dribble_account=models.URLField(blank=True,null=True)
