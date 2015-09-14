@@ -12,7 +12,7 @@ from allaccess.compat import smart_bytes, force_text
 from allaccess.compat import get_user_model
 from allaccess.models import Provider, AccountAccess
 
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.core.urlresolvers import reverse
 from django.http import Http404, HttpResponse
 from django.shortcuts import redirect,render
