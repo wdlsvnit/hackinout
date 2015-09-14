@@ -18,12 +18,13 @@ from django.contrib import admin
 
 from django.contrib.auth.decorators import login_required
 
-from inout.views import CustomCallback,UserDash,Index
+from inout.views import CustomCallback,UserDash,Index,logout_view
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/callback/(?P<provider>(\w|-)+)/$',CustomCallback.as_view(),name='mlh-callback'),
     url(r'^accounts/profile/$',UserDash),
+    url(r'^accounts/logout/$',logout_view),
     url(r'^accounts/', include('allaccess.urls')),
     url(r'^$',Index)
 ]

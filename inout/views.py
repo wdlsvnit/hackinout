@@ -28,19 +28,22 @@ from django.contrib.auth.decorators import login_required
 
 def Index(request):
     user=request.user
+    if user.is_superuser:
+        return HttpResponseRedirect('/admin/')
     if user.id==None:
         return render(request,'inout/index.html',{'user':None,'app_status':False})
-    inout_user_status=user.inoutuser.application_status
     try:
         profile_links=user.inoutuser.inoutuserlink
     except InoutUserLink.DoesNotExist:
         return HttpResponseRedirect('/accounts/profile/')
-
+    inout_user_status=user.inoutuser.application_status
     return render(request,'inout/index.html',{'user':request.user,'app_status':inout_user_status})
 
 @login_required
 def UserDash(request):
     user=request.user
+    if user.is_superuser:
+        return HttpResponseRedirect('/admin/')
     inout_user=user.inoutuser
     if request.method == 'POST':
         form = InoutUserForm(request.POST, request.FILES)
@@ -59,6 +62,10 @@ def UserDash(request):
         form = InoutUserForm()
 
     return render(request,'inout/dashboard.html',{'user':request.user,'inout_user':inout_user,'form':form})
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect('/')
 
 class CustomCallback(OAuthCallback):
 
