@@ -218,6 +218,14 @@ body {
 	.content_text_normal {
 		font-family : 'Source Sans Pro';
 		font-size : 1.25em;
+		a{
+			color: inherit;
+			text-decoration: underline;
+			// &:hover{
+			// 	color: inherit;
+			// 	text-decoration: underline;
+			// }
+		}
 	}
 
 	.section--title {

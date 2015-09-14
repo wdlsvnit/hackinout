@@ -7,5 +7,9 @@ class InoutUserForm(forms.ModelForm):
         model = InoutUserLink
         exclude = ['inout_user']
         widgets = {
-            'additional_info': forms.Textarea(attrs={'placeholder':"Briefly describe about your past achievements,projects,hacks etc. Also provide links to any other public profiles you have."}),
+            'additional_info': forms.Textarea(attrs={'placeholder':"Briefly describe about your past achievements, projects, hacks etc. Also provide links to any other public profiles you have."}),
+        }
+        labels = {
+            'github_account': 'GitHub',
+            'linkedin_account': 'LinkedIn',
         }
