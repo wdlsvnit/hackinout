@@ -7,5 +7,5 @@ class InoutUserForm(forms.ModelForm):
         model = InoutUserLink
         exclude = ['inout_user']
         help_texts = {
-            'additional_info': _('Briefly describe about your past achievements,projects,hacks etc. Also provide links to any other public profiles you have.'),
+            'additional_info': 'Briefly describe about your past achievements,projects,hacks etc. Also provide links to any other public profiles you have.',
         }
