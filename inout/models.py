@@ -30,7 +30,7 @@ class InoutUserLink(models.Model):
     github_account=models.URLField()
     #dribble_account=models.URLField(blank=True,null=True)
     #behance_account=models.URLField(blank=True,null=True)
-    linkedin_account=models.URLField()
+    linkedin_account=models.URLField(blank=True,null=True)
     city=models.CharField(max_length=25)
     resume=models.FileField(upload_to='resumes')
     additional_info = models.TextField(max_length=500)
