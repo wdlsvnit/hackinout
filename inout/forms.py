@@ -6,6 +6,6 @@ class InoutUserForm(forms.ModelForm):
     class Meta:
         model = InoutUserLink
         exclude = ['inout_user']
-        help_texts = {
-            'additional_info': 'Briefly describe about your past achievements,projects,hacks etc. Also provide links to any other public profiles you have.',
+        widgets = {
+            'additional_info': Textarea(attrs={'placeholder':"'Briefly describe about your past achievements,projects,hacks etc. Also provide links to any other public profiles you have.'"}),
         }
