@@ -7,7 +7,6 @@ db.sqlite3
 
 # Dependency directory
 node_modules
-app
 
 ### Bower ###
 bower_components
