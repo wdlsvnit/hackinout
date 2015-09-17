@@ -31,8 +31,8 @@
 
 {% block content %}
 
-<section class="section__main">
-  <div class="content">
+<section class="registration-form">
+  <div class="form-content">
 <form method="post" action="/accounts/profile/" enctype="multipart/form-data" class="bootstrap3">
   {% csrf_token %}
 {{ form|crispy}}
