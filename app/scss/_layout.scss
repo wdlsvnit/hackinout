@@ -443,6 +443,7 @@ body {
  	padding-top: 100px;
  	background: $bg_color_main_section;
  	height: 100%;
+ 	min-height: 100vh;
  	color: #FFFFFF;
  	.form-content{
  		max-width: 80%;
