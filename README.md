@@ -7,7 +7,7 @@
     <br/>
     Your only constraint is: You only have 30 hours.
   </p>
-  <h2>NIT Surat's foremost Hackathon.</h2>
+  <h2>NIT Surat's Premier Hackathon.</h2>
   <p>
     Hackathons provide a venue for self-expression and creativity through technology. People with technical backgrounds come together, form teams around a problem or idea, and collaboratively code a unique solution from scratch - these generally take shape in the form of websites, mobile apps, and robots. So prepare yourself for a weekend filled with learning new technologies, building amazing products and making new friends all within the span of 30 hours.
   </p>
