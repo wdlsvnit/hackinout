@@ -733,25 +733,38 @@ body {
 		.contact {
 			padding : 10px;
 			float : left;
-			width : 50%;
+			width : 33%;
 			text-align : left;
 
 			@media screen and (max-width : $fourth_breakpoint) {
 				float : none;
 				width : 100%;
+				text-align : center;
 			}
 		}
 
 		.madeAtCopy {
 			padding : 10px;
-			float : right;
-			width : 50%;
+			float : left;
+			width : 33%;
+			text-align : center;
+			@media screen and (max-width : $fourth_breakpoint) {
+				float : none;
+				width : 100%;
+				text-align : center;
+			}
+		}
+		.codeOfConduct {
+			padding : 10px;
+			float : left;
+			width : 33%;
 			text-align : right;
 			@media screen and (max-width : $fourth_breakpoint) {
 				float : none;
 				width : 100%;
-				text-align : left;
+				text-align : center;
 			}
+
 
 		}
 	}
