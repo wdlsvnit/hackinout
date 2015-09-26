@@ -24,6 +24,9 @@ class InoutUser(models.Model):
         return self.participant.email
     full_name = property(_get_full_name)
     email = property(_get_email)
+    
+    def __str__(self):
+        return  self.full_name +"|"+self.school
 
 class InoutUserLink(models.Model):
     inout_user = models.OneToOneField(InoutUser)
