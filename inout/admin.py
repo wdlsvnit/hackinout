@@ -20,12 +20,13 @@ class ProfileAdmin(DjangoObjectActions,admin.ModelAdmin):
 
     def github_link(self, obj):
     	return format_html("<a target='_blank' href='{url}'>{url}</a>", url=obj.github_account)
-
+        
     github_link.allow_tags = True
     
     def approval_status(self,obj):
         return obj.inout_user.application_status
     approval_status.allow_tags = True
+    
     def approve_user(self, request, obj):
         applicant=InoutUser.objects.get(id=obj.inout_user.id)
         applicant.application_status = True
@@ -35,3 +36,4 @@ class ProfileAdmin(DjangoObjectActions,admin.ModelAdmin):
     approve_user.short_description = "Approve user participation"  # optional
 
     objectactions = ('approve_user', )
+

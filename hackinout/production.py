@@ -42,10 +42,22 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'allaccess',
     'inout',
-    'crispy_forms'
+    'crispy_forms',
+    'django_object_actions',
 )
 
+INSTALLED_APPS += (
+    'opbeat.contrib.django',
+)
+
+OPBEAT = {
+    'ORGANIZATION_ID': 'ba9a07d70a9542a2830febbc4e468582',
+    'APP_ID': '1e6d23ed68',
+    'SECRET_TOKEN': 'be583e37719c3893254d610b9548daef4aef53c4',
+}
+
 MIDDLEWARE_CLASSES = (
+    'opbeat.contrib.django.middleware.OpbeatAPMMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
