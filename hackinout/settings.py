@@ -41,7 +41,8 @@ INSTALLED_APPS = (
     'allaccess',
     'debug_toolbar',
     'inout',
-    'crispy_forms'
+    'crispy_forms',
+    'django_object_actions',
 )
 
 MIDDLEWARE_CLASSES = (
