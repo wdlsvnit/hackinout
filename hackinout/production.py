@@ -42,7 +42,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'allaccess',
     'inout',
-    'crispy_forms'
+    'crispy_forms',
+    'django_object_actions',
 )
 
 INSTALLED_APPS += (
