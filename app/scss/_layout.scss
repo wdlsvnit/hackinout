@@ -622,13 +622,14 @@ body {
 
 	.section__sponsors {
 		@extend .section;
+		position : relative;
 		border-top : 4px dashed $bg_color_schedule_section;
 		padding: 20px;
 		background-color : $bg_color_sponsors_section;
 
 		h1.title {
 			@extend .section--title;
-			color  : white;
+			color  : black;
 			padding-top : 20px;
 		}
 
@@ -643,12 +644,27 @@ body {
 			color : white;
 		}
 
+		.extra_info {
+			position : absolute;
+			bottom : 20px;
+			left : 50%;
+			margin-left : -260px;
+			@media screen and (max-width : $second_breakpoint) {
+			}
+			@media screen and (max-width : 410px) {
+				margin-left  : -196px;
+			}
+
+		}
+
 		p {
-			  font-size : 2em;
+			  font-size : 1.5em;
     		padding-bottom : 1pc;
     		line-height : normal;
     		color : #FEC537;
     		text-align : center;
+    		color : #303030;
+    		margin-top : 40px;
 			@media screen and (max-width : $second_breakpoint) {
 				font-size : 1.5em;
 			}
@@ -670,7 +686,7 @@ body {
 			text-shadow : 0px 1px rgba(0, 0, 0, 0.15);
 			color : white;
 			margin : 0 auto;
-			margin-top : 40px;
+			margin-top : 10px;
 			transition : all 0.15s;
 
 			&:hover {
