@@ -622,7 +622,7 @@ body {
 
 	.section__sponsors {
 		@extend .section;
-		position : relative;
+		height : auto;
 		border-top : 4px dashed $bg_color_schedule_section;
 		padding: 20px;
 		background-color : $bg_color_sponsors_section;
@@ -635,13 +635,26 @@ body {
 
 		.description {
 			margin-bottom : 45px;
+			text-align : center;
+			.prime_sponsor {
+				display : inline-block;
+				width : auto;
+				height : 130px;
+				margin : 20px;
+				@media screen and (max-width : $third_breakpoint) {
+					height : 80px;
+				}
+				@media screen and (max-width : $fourth_breakpoint) {
+					height : 60px;
+				}
+			}
 		}
 
 
 		.content__sponsors {
 			@extend .inner_content;
-			font-family : 'Open Sans';
-			color : white;
+			font-family : 'Source Sans Pro';
+			font-size : 1.2em;
 		}
 
 		.extra_info {
