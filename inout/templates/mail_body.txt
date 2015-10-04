@@ -1,0 +1,8 @@
+
+Hi {{ first_name }},
+you are approved!
+That's enough text for testing.
+<br><br>
+Regards,
+Team InOut
+https://hackinout.co
