@@ -43,6 +43,14 @@ def Index(request):
     return render(request,'inout/index.html',{'user':request.user,'app_status':inout_user_status})
 
 @xframe_options_exempt
+def rsvp(request):
+    user=request.user
+    if user.is_superuser:
+        return HttpResponseRedirect('/admin/')
+    if user.id==None:
+        return render(request,'inout/rsvp.html',{'user':None,'app_status':False})
+
+@xframe_options_exempt
 @login_required
 def UserDash(request):
     user=request.user
