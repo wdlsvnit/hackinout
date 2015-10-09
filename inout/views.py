@@ -26,6 +26,9 @@ from inout.forms import InoutUserForm
 
 from django.contrib.auth.decorators import login_required
 
+from django.views.decorators.clickjacking import xframe_options_exempt
+
+@xframe_options_exempt
 def Index(request):
     user=request.user
     if user.is_superuser:
@@ -39,7 +42,7 @@ def Index(request):
     inout_user_status=user.inoutuser.application_status
     return render(request,'inout/index.html',{'user':request.user,'app_status':inout_user_status})
 
-
+@xframe_options_exempt
 def rsvp(request):
     user=request.user
     if user.is_superuser:
@@ -47,7 +50,7 @@ def rsvp(request):
     if user.id==None:
         return render(request,'inout/rsvp.html',{'user':None,'app_status':False})
 
-
+@xframe_options_exempt
 @login_required
 def UserDash(request):
     user=request.user
