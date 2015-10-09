@@ -1,4 +1,33 @@
 {% extends "base.html"  %}
+{% block nav %}
+<nav>
+  <div class="nav-contents">
+    <div class="section_links">
+      <ul class = "navigation">
+        <li class = "active" ><a href="https://hackinout.co">HOME</a></li>
+      </ul>
+    </div> <!-- End of section_links -->
+    <div class="social_links">
+      {% if user %}
+      <a href = "/accounts/logout"><i class="fa fa-power-off fa-2x social_icon"></i></a>
+      {% endif %}
+      <a href = "https://www.facebook.com/inout.svnit" target = "_blank"><i class="fa fa-facebook fa-2x social_icon"></i></a>
+      <a href = "https://twitter.com/inout_svnit" target = "_blank"><i class="fa fa-twitter fa-2x social_icon"></i></a>
+      <a href = "https://medium.com/@InOut" target = "_blank"><i class="fa fa-medium fa-2x social_icon"></i></a>
+    </div> <!-- End of social_links -->
+  </div> <!-- End of nav-contents -->
+</nav>
+<div class="mobile-nav">
+  <div id="toggle">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+  </div>
+  <ul id="mobile-menu" class="hide-menu navigation">
+    <li class = "active" ><a href="https://hackinout.co">HOME</a></li>
+  </ul>
+</div>
+{% endblock %}
 {% block content %}
 
 <!-- Change the width and height values to suit you best -->
