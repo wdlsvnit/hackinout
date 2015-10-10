@@ -44,11 +44,7 @@ def Index(request):
 
 @xframe_options_exempt
 def rsvp(request):
-    user=request.user
-    if user.is_superuser:
-        return HttpResponseRedirect('/admin/')
-    if user.id==None:
-        return render(request,'inout/rsvp.html',{'user':None,'app_status':False})
+        return render(request,'inout/rsvp.html')
 
 @xframe_options_exempt
 @login_required
