@@ -24,20 +24,22 @@
       <div class="three"></div>
     </div>
     <ul id="mobile-menu" class="hide-menu navigation">
-      <li class = " active" data-target = "main">HOME</li>
+      <li class = "active" ><a href="/">InOut</a></li>
+      <li><a href = "/accounts/logout"><i class="fa fa-power-off fa-2x social_icon"></i></a></li>
     </ul>
   </div>
 {% endblock %}
 
 {% block content %}
 
-<section class="section__main">
-  <div class="content">
+<section class="registration-form">
+  <div class="form-content">
 <form method="post" action="/accounts/profile/" enctype="multipart/form-data" class="bootstrap3">
   {% csrf_token %}
 {{ form|crispy}}
 <input class="btn btn-default" type="submit" value="Submit">
 </form>
+<br><br><br>
 </div>
 </section>
 {% endblock %}

@@ -41,7 +41,8 @@ INSTALLED_APPS = (
     'allaccess',
     'debug_toolbar',
     'inout',
-    'crispy_forms'
+    'crispy_forms',
+    'django_object_actions',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -152,3 +153,15 @@ LOGGING = {
         },
     }
 }
+
+
+#smtp  settings
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+DEFAULT_FROM_EMAIL = 'mail@hackinout.co'
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_HOST_USER = 'mail@hackinout.co'
+EMAIL_HOST_PASSWORD = '*******'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True

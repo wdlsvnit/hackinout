@@ -439,7 +439,17 @@ body {
 			}
 		}
 	}
-
+ .registration-form{
+ 	padding-top: 100px;
+ 	background: $bg_color_main_section;
+ 	height: 100%;
+ 	min-height: 100vh;
+ 	color: #FFFFFF;
+ 	.form-content{
+ 		max-width: 80%;
+ 		margin: 5px 10%;
+ 	}
+ }
 	.section__about {
 		@extend .section;
 		background-color : $bg_color_about_section;
@@ -612,33 +622,62 @@ body {
 
 	.section__sponsors {
 		@extend .section;
+		height : auto;
 		border-top : 4px dashed $bg_color_schedule_section;
 		padding: 20px;
 		background-color : $bg_color_sponsors_section;
 
 		h1.title {
 			@extend .section--title;
-			color  : white;
+			color  : black;
 			padding-top : 20px;
 		}
 
 		.description {
 			margin-bottom : 45px;
+			text-align : center;
+			.prime_sponsor {
+				display : inline-block;
+				width : auto;
+				height : 130px;
+				margin : 20px;
+				@media screen and (max-width : $third_breakpoint) {
+					height : 80px;
+				}
+				@media screen and (max-width : $fourth_breakpoint) {
+					height : 60px;
+				}
+			}
 		}
 
 
 		.content__sponsors {
 			@extend .inner_content;
-			font-family : 'Open Sans';
-			color : white;
+			font-family : 'Source Sans Pro';
+			font-size : 1.2em;
+		}
+
+		.extra_info {
+			position : absolute;
+			bottom : 20px;
+			left : 50%;
+			margin-left : -260px;
+			@media screen and (max-width : $second_breakpoint) {
+			}
+			@media screen and (max-width : 410px) {
+				margin-left  : -196px;
+			}
+
 		}
 
 		p {
-			  font-size : 2em;
+			  font-size : 1.5em;
     		padding-bottom : 1pc;
     		line-height : normal;
     		color : #FEC537;
     		text-align : center;
+    		color : #303030;
+    		margin-top : 40px;
 			@media screen and (max-width : $second_breakpoint) {
 				font-size : 1.5em;
 			}
@@ -660,7 +699,7 @@ body {
 			text-shadow : 0px 1px rgba(0, 0, 0, 0.15);
 			color : white;
 			margin : 0 auto;
-			margin-top : 40px;
+			margin-top : 10px;
 			transition : all 0.15s;
 
 			&:hover {
@@ -723,25 +762,38 @@ body {
 		.contact {
 			padding : 10px;
 			float : left;
-			width : 50%;
+			width : 33%;
 			text-align : left;
 
 			@media screen and (max-width : $fourth_breakpoint) {
 				float : none;
 				width : 100%;
+				text-align : center;
 			}
 		}
 
 		.madeAtCopy {
 			padding : 10px;
-			float : right;
-			width : 50%;
+			float : left;
+			width : 33%;
+			text-align : center;
+			@media screen and (max-width : $fourth_breakpoint) {
+				float : none;
+				width : 100%;
+				text-align : center;
+			}
+		}
+		.codeOfConduct {
+			padding : 10px;
+			float : left;
+			width : 33%;
 			text-align : right;
 			@media screen and (max-width : $fourth_breakpoint) {
 				float : none;
 				width : 100%;
-				text-align : left;
+				text-align : center;
 			}
+
 
 		}
 	}
