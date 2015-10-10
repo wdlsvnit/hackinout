@@ -44,7 +44,7 @@ def Index(request):
 
 @xframe_options_exempt
 def rsvp(request):
-        return render(request,'inout/rsvp.html')
+        return render(request,'inout/rsvp.html',{'user':None})
 
 @xframe_options_exempt
 @login_required
