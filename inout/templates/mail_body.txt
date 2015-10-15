@@ -1,8 +1,5 @@
 
-Hi {{ first_name }},
-you are approved!
-That's enough text for testing.
-<br><br>
-Regards,
-Team InOut
-https://hackinout.co
+Congratulations {{ first_name }}!
+You're invited to attend InOut.
+RSVP Here before 18th of October 11:59 IST
+https://inout-rsvp.typeform.com/to/p11rht
