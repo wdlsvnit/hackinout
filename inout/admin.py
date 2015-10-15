@@ -45,8 +45,10 @@ class ProfileAdmin(DjangoObjectActions,admin.ModelAdmin):
         from_email = settings.DEFAULT_FROM_EMAIL
         to_email = [ applicant.email ]
         context = {
+
              "first_name": first_name,
          }
+
         email_template_html = "mail_body.html"
         email_template_txt  = "mail_body.txt"
         text_content = render_to_string(email_template_txt, context)
