@@ -27,5 +27,5 @@ urlpatterns = [
     url(r'^accounts/logout/$',logout_view),
     url(r'^accounts/', include('allaccess.urls')),
     url(r'^$',Index),
-    url(r'^rsvp/',rsvp)
+    #url(r'^rsvp/',rsvp)
 ]

@@ -41,8 +41,8 @@ class ProfileAdmin(DjangoObjectActions,admin.ModelAdmin):
         applicant.save()
 
         first_name = applicant.first_name
-        subject = 'InOut Registration approved!'
-        from_email = settings.DEFAULT_FROM_EMAIL
+        subject = 'You\'re in!'
+        from_email = "Team InOut <"+settings.DEFAULT_FROM_EMAIL+">"
         to_email = [ applicant.email ]
         context = {
 
