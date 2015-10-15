@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.html import format_html
 from django.http import HttpResponseRedirect
-from django.core.mail import send_mail, BadHeaderError, send_mass_mail
+from django.core.mail import send_mail, BadHeaderError, send_mass_mail,EmailMultiAlternatives
 from django.conf import settings
 from django.template.loader import get_template, render_to_string
 
@@ -53,10 +53,12 @@ class ProfileAdmin(DjangoObjectActions,admin.ModelAdmin):
         email_template_txt  = "mail_body.txt"
         text_content = render_to_string(email_template_txt, context)
         html_content = render_to_string(email_template_html, context)
-
+        headers = {'X-Priority':1}
         if subject and to_email and from_email :
             try:
-                send_mail(subject, text_content, from_email, to_email, fail_silently=False, html_message=html_content)
+                msg=EmailMultiAlternatives(subject, text_content, from_email, to_email,headers = headers)
+                msg.attach_alternative(html_content,"text/html")
+                msg.send()
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
 
