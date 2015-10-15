@@ -636,18 +636,31 @@ body {
 		.description {
 			margin-bottom : 45px;
 			text-align : center;
-			.prime_sponsor {
+			.sponsor {
 				display : inline-block;
 				width : auto;
+				height : 90px;
+				margin : 30px;
+				@media screen and (max-width : $third_breakpoint) {
+					height : 60px;
+				}
+				@media screen and (max-width : $fourth_breakpoint) {
+					height : 40px;
+				}
+			}
+
+			.prime_sponsor {
+				@extend .sponsor;
 				height : 130px;
-				margin : 20px;
 				@media screen and (max-width : $third_breakpoint) {
 					height : 80px;
 				}
 				@media screen and (max-width : $fourth_breakpoint) {
 					height : 60px;
 				}
+
 			}
+
 		}
 
 

@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'inout',
     'crispy_forms',
     'django_object_actions',
+    'djrill'
 )
 
 INSTALLED_APPS += (
@@ -148,11 +149,14 @@ CSRF_COOKIE_HTTPONLY = True
 X_FRAME_OPTIONS = 'DENY'
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 DEFAULT_FROM_EMAIL = 'mail@hackinout.co'
-EMAIL_HOST = 'smtp.zoho.com'
-EMAIL_HOST_USER = 'mail@hackinout.co'
-EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
-EMAIL_PORT = 465
-EMAIL_USE_SSL = True
+#EMAIL_HOST = 'smtp.zoho.com'
+#EMAIL_HOST_USER = 'mail@hackinout.co'
+#EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+#EMAIL_PORT = 465
+#EMAIL_USE_SSL = True
+
+MANDRILL_API_KEY = os.environ['MANDRILL_API_KEY']
+EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"
