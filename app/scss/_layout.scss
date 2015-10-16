@@ -651,7 +651,19 @@ body {
 
 			.prime_sponsor {
 				@extend .sponsor;
-				height : 130px;
+				height : 120px;
+				@media screen and (max-width : $third_breakpoint) {
+					height : 80px;
+				}
+				@media screen and (max-width : $fourth_breakpoint) {
+					height : 60px;
+				}
+	
+			}
+
+			.platinum_sponsor {
+				@extend .sponsor;
+				height : 180px;
 				@media screen and (max-width : $third_breakpoint) {
 					height : 80px;
 				}
@@ -661,6 +673,40 @@ body {
 
 			}
 
+			.gold_sponsor {
+				@extend .sponsor;
+				height : 120px;
+				@media screen and (max-width : $third_breakpoint) {
+					height : 40px;
+				}
+				@media screen and (max-width : $fourth_breakpoint) {
+					height : 30px;
+				}
+
+			}
+
+			.silver_sponsor {
+				@extend .sponsor;
+				height : 80px;
+				@media screen and (max-width : $third_breakpoint) {
+					height : 40px;
+				}
+				@media screen and (max-width : $fourth_breakpoint) {
+					height : 30px;
+				}
+
+			}
+
+			.bronze_sponsor {
+				@extend .sponsor;
+				height : 50px;
+				@media screen and (max-width : $third_breakpoint) {
+					height : 40px;
+				}
+				@media screen and (max-width : $fourth_breakpoint) {
+					height : 30px;
+				}
+			}
 		}
 
 

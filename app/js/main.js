@@ -113,10 +113,6 @@ $(window).load(function() {
 		});
 	}
 
-	// // hack to highlight active navlink
-	//  $('li').click(function(e) {
-	//         e.preventDefault();
-	//         $('li').removeClass('active');
-	//         $(this).addClass('active');
-	//     });
+	console.log('%c FOLLOW InOut team on twitter : ', 'background: #222; color: #bada55');
+
 });

@@ -159,12 +159,12 @@
 			});
 		}
 
-		// // hack to highlight active navlink
-		//  $('li').click(function(e) {
-		//         e.preventDefault();
-		//         $('li').removeClass('active');
-		//         $(this).addClass('active');
-		//     });
+			console.log('%c You found us, follow InOut team on twitter : ', 'background: #222; color: #bada55');
+			console.log('%c Akash Nimare ( https://twitter.com/meakaakka ): ', 'background: #1B252E; color: #fff');
+			console.log('%c Nash Vail ( https://twitter.com/NashVail )', 'background: #468DF0; color: #fff');
+			console.log('%c Vikas Parashar ( https://twitter.com/viCODE_in )', 'background: #222; color: #fff');
+			console.log('%c Shakti Goap ( https://twitter.com/shaktigoap )', 'background: #569CD5; color: #fff');
+
 	});
 
 /***/ }
