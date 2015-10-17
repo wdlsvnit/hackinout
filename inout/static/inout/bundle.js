@@ -164,6 +164,7 @@
 			console.log('%c Nash Vail ( https://twitter.com/NashVail )', 'background: #468DF0; color: #fff');
 			console.log('%c Vikas Parashar ( https://twitter.com/viCODE_in )', 'background: #222; color: #fff');
 			console.log('%c Shakti Goap ( https://twitter.com/shaktigoap )', 'background: #569CD5; color: #fff');
+			console.log('%c Meet Shah ( https://twitter.com/_meetshah )', 'background: #222; color: #fff');
 
 	});
 
