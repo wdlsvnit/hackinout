@@ -171,7 +171,7 @@ DEFAULT_FROM_EMAIL = 'mail@hackinout.co'
 
 
 
-MANDRILL_API_KEY = os.environ["MANDRILL_API_KEY"]
+MANDRILL_API_KEY = 'g1KFes2O1Jn530H3lnqRJQ'
 
 
 EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"
