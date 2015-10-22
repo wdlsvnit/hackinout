@@ -18,7 +18,7 @@ from django.contrib import admin
 
 from django.contrib.auth.decorators import login_required
 
-from inout.views import CustomCallback,UserDash,Index,logout_view,rsvp
+from inout.views import CustomCallback,UserDash,Index,logout_view,closed
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -27,5 +27,5 @@ urlpatterns = [
     url(r'^accounts/logout/$',logout_view),
     url(r'^accounts/', include('allaccess.urls')),
     url(r'^$',Index),
-    #url(r'^rsvp/',rsvp)
+    url(r'^closed/',closed,name='closed')
 ]
