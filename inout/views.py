@@ -138,7 +138,7 @@ class CustomCallback(OAuthCallback):
 
     def get_or_create_user(self, provider, access, info):
         "Registrations Closed"
-        return redirect('closed')
+        return redirect('/closed')
         "Create InOut user profile."
         '''kwargs = {
             'school':info.pop('school')['name']
