@@ -116,7 +116,7 @@ class CustomCallback(OAuthCallback):
                 AccountAccess.objects.filter(pk=access.pk).update(**defaults)
             user = authenticate(provider=provider, identifier=identifier)
             if user is None:
-                return self.handle_new_user(provider, access, info)
+                return redirect('/closed')
             else:
                 return self.handle_existing_user(provider, user, access, info)
 
@@ -137,10 +137,9 @@ class CustomCallback(OAuthCallback):
         return redirect(self.get_login_redirect(provider, user, access))
 
     def get_or_create_user(self, provider, access, info):
-        "Registrations Closed"
-        return redirect('/closed')
+
         "Create InOut user profile."
-        '''kwargs = {
+        kwargs = {
             'school':info.pop('school')['name']
         }
         info.pop('id')
@@ -166,4 +165,4 @@ class CustomCallback(OAuthCallback):
         new_user=User.objects.create_user(**kwargs)
         new.participant = new_user
         new.save()
-        return new_user'''
+        return new_user
