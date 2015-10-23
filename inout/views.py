@@ -43,8 +43,8 @@ def Index(request):
     return render(request,'inout/index.html',{'user':request.user,'app_status':inout_user_status})
 
 @xframe_options_exempt
-def rsvp(request):
-        return render(request,'inout/rsvp.html',{'user':None})
+def closed(request):
+        return render(request,'inout/closed.html')
 
 @xframe_options_exempt
 @login_required
@@ -116,7 +116,7 @@ class CustomCallback(OAuthCallback):
                 AccountAccess.objects.filter(pk=access.pk).update(**defaults)
             user = authenticate(provider=provider, identifier=identifier)
             if user is None:
-                return self.handle_new_user(provider, access, info)
+                return redirect('/closed')
             else:
                 return self.handle_existing_user(provider, user, access, info)
 
@@ -137,6 +137,7 @@ class CustomCallback(OAuthCallback):
         return redirect(self.get_login_redirect(provider, user, access))
 
     def get_or_create_user(self, provider, access, info):
+
         "Create InOut user profile."
         kwargs = {
             'school':info.pop('school')['name']
