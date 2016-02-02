@@ -391,6 +391,8 @@ body {
 		.button__applynow {
 			@extend .button;
 
+			/*To show the button just comment the line below*/
+			visibility: hidden;
 			line-height : 75px;
 			background: $color_button_apply;
 			box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.33), inset 0px -3px 0px 0px rgba(0,0,0,0.21);
@@ -477,6 +479,7 @@ body {
 
 	.section__faq {
 		@extend .section;
+		display: none;
 		height : auto;
 		border-top : 4px dashed $bg_color_about_section;
 
@@ -511,6 +514,7 @@ body {
 
 	.section__schedule {
 		@extend .section;
+		display: none;
 		border-top : 4px dashed $bg_color_faq_section;
 		height : auto;
 

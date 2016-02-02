@@ -104,6 +104,8 @@
 			}
 		};
 
+		console.log(sections);	
+
 		// Attaching event listener to the window for listening to scrolling and adjustin the nav bar
 		$window.on('scroll', function (event) {
 			highlightRelevantLinkBasedOnPosition($window.scrollTop());
@@ -136,7 +138,7 @@
 			} else if (pageScrollPosition >= faqSectionTop && pageScrollPosition < scheduleSectionTop) {
 				selectNavLink("faq");
 			} else if (pageScrollPosition >= scheduleSectionTop && pageScrollPosition < sponsorsSectionTop) {
-				selectNavLink("schedule");
+				selectNavLink("about");
 			} else if (pageScrollPosition >= sponsorsSectionTop) {
 				selectNavLink("sponsors");
 			}
