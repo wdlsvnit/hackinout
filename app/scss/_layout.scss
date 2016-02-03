@@ -392,7 +392,8 @@ body {
 			@extend .button;
 
 			/*To show the button just comment the line below*/
-			visibility: hidden;
+			/*visibility: hidden;*/
+			cursor: auto;
 			line-height : 75px;
 			background: $color_button_apply;
 			box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.33), inset 0px -3px 0px 0px rgba(0,0,0,0.21);
@@ -406,8 +407,8 @@ body {
 			transition : all 0.15s;
 
 			&:hover {
-				box-shadow: 0px 7px 20px 0px rgba(0,0,0,0.4), inset 0px -3px 0px 0px rgba(0,0,0,0.21);
-				transition : all 0.2s cubic-bezier(.12,.64,.59,1.47);
+				// box-shadow: 0px 7px 20px 0px rgba(0,0,0,0.4), inset 0px -3px 0px 0px rgba(0,0,0,0.21);
+				// transition : all 0.2s cubic-bezier(.12,.64,.59,1.47);
 				// transform : scale(1.07);
 			}
 		}
