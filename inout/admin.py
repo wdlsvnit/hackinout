@@ -17,7 +17,7 @@ import sys
 @admin.register(InoutUser)
 class ParticipantAdmin(admin.ModelAdmin):
     list_display = ('full_name','application_status','email')
-    search_fields = ('full_name','email',)
+    search_fields = ('first_name','last_name')
 
 @admin.register(InoutUserLink)
 class ProfileAdmin(DjangoObjectActions,admin.ModelAdmin):
