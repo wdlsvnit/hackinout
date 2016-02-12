@@ -22,10 +22,11 @@ from inout.views import CustomCallback,UserDash,Index,logout_view,closed
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^accounts/callback/(?P<provider>(\w|-)+)/$',CustomCallback.as_view(),name='mlh-callback'),
-    url(r'^accounts/profile/$',UserDash),
-    url(r'^accounts/logout/$',logout_view),
-    url(r'^accounts/', include('allaccess.urls')),
+    # The following urls have been disabled due to the change in registration process for InOut 3.0
+    #url(r'^accounts/callback/(?P<provider>(\w|-)+)/$',CustomCallback.as_view(),name='mlh-callback'),
+    #url(r'^accounts/profile/$',UserDash),
+    #url(r'^accounts/logout/$',logout_view),
+    #url(r'^accounts/', include('allaccess.urls')),
     url(r'^$',Index),
     url(r'^closed/',closed,name='closed')
 ]
