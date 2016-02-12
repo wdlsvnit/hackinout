@@ -67,7 +67,7 @@ class Participant(models.Model):
     XXLARGE = 'XXL'
 
     # T-shirt size choices
-    TSHIRT_SIZE_CHOICES = ((SMALL,'Small'),(MEDIUM,'Medium'),(XLARGE,'X-Large'),(XXLARGE,'X-X-Large'),) 
+    TSHIRT_SIZE_CHOICES = ((SMALL,'Small'),(MEDIUM,'Medium'),(XLARGE,'X-Large'),(XXLARGE,'XX-Large'),) 
     
     # Participants first name
     first_name=models.CharField(max_length=25)
@@ -75,6 +75,12 @@ class Participant(models.Model):
     # Participants last name
     last_name=models.CharField(max_length=25)
     
+    # Participant email
+    email = models.EmailField(unique = True)
+    
+    # Participant's Institute name
+    school=models.CharField(max_length=80)
+
     # Participants graduation year
     graduation=models.DateField()
 
@@ -84,52 +90,50 @@ class Participant(models.Model):
     # Participants T-shirt size
     tshirt_size=models.CharField(max_length=3,choices = TSHIRT_SIZE_CHOICES,default = SMALL)
 
-    # Participant's registration date
-    registration_date = models.DateTimeField(auto_now=True)
-
-    # Participant's dietary restrictions (if any) 
-    dietary_restrictions=models.CharField(max_length=50,null=True)
-    
-    # Participant's special needs
-    special_needs=models.CharField(max_length=100,null=True,blank=True)
-    
-    
     date_of_birth=models.DateField()
     
     gender=models.CharField(max_length=20)
     
     phone_number=models.CharField(max_length=15)
-    
-    # Participant's Institute name
-    school=models.CharField(max_length=80)
-    
+
+    # Participant's city of residence
+    city=models.CharField(max_length=25)
+
     # Participant's GitHub Account URL
     github_account=models.URLField()
     
     # Participant's Linkedin Profile URL
     linkedin_account=models.URLField(blank=True,null=True)
-    
-    # Participant's city of residence
-    city=models.CharField(max_length=25)
 
-    # Participant's resume file
+    # Participant's facebook Profile URL
+    facebook_account=models.URLField(blank=True,null=True)
+
+    # Participant's twitter Profile URL
+    twitter_account=models.URLField(blank=True,null=True)
+    
+    # Participant's resume file will be uploaded to  ./media/resumes/   
     resume=models.FileField(upload_to='resumes')
     
     # Participant's additional-info (optional)
     additional_info = models.TextField(max_length=500)
+
+     # Participant's dietary restrictions (if any) 
+    dietary_restrictions=models.CharField(max_length=50,null=True)
     
+    # Participant's special needs
+    special_needs=models.CharField(max_length=100,null=True,blank=True)
+    
+    # Participant's registration date
+    registration_date = models.DateTimeField(auto_now=True)
+
     # Participant's Team
     team = models.ForeignKey("Team",on_delete = models.CASCADE, related_name = 'participants', related_query_name='participant')
 
     def _get_full_name(self):
         return self.first_name +' '+ self.last_name
     
-    def _get_email(self):
-        return self.participant.email
-
     full_name = property(_get_full_name)
     
-    email = property(_get_email)
     
     def __str__(self):
         return  self.full_name +"|"+self.school
