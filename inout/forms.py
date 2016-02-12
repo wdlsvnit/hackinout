@@ -31,3 +31,12 @@ class ParticipantForm(forms.ModelForm):
             'special_needs': forms.Textarea(attrs={'placeholder':"Please mention if you have any special requirements."}),
             'additional_info': forms.Textarea(attrs={'placeholder':"Briefly describe about your past achievements, projects, hacks etc. Also provide links to any other public profiles you have."}),
         }
+        labels = {
+
+        }
+        help_texts = {
+                
+        }
+        error_messages = {
+
+        }

@@ -94,11 +94,14 @@ class Participant(models.Model):
     
     gender=models.CharField(max_length=20)
     
-    phone_number=models.CharField(max_length=15)
+    mobile_number=models.CharField(max_length=10)
 
     # Participant's city of residence
     city=models.CharField(max_length=25)
-
+    
+    # Participant's Emergency contact details
+    emergency_contact_name = models.CharField(max_length=60)
+    emergency_contact_phone_number = models.CharField(max_length=10)
     # Participant's GitHub Account URL
     github_account=models.URLField()
     
