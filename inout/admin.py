@@ -8,14 +8,14 @@ from django.template.loader import get_template, render_to_string
 from django_object_actions import DjangoObjectActions
 
 # Register your models here.
-from .models import InoutUser,InoutUserLink
+from .models import InoutUser,InoutUserLink ,Team, Participant
 
 import os
 import sys
-#admin.site.register(InoutUser)
-
+admin.site.register(Team)
+admin.site.register(Participant)
 @admin.register(InoutUser)
-class ParticipantAdmin(admin.ModelAdmin):
+class InoutUserAdmin(admin.ModelAdmin):
     list_display = ('full_name','application_status','email')
     search_fields = ('first_name','last_name')
 

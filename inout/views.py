@@ -2,6 +2,7 @@
 import base64
 import hashlib
 import logging
+import string,random
 
 from allaccess.views import OAuthCallback
 
@@ -22,7 +23,7 @@ from django.shortcuts import render
 
 
 from inout.models import InoutUser,InoutUserLink, Team
-from inout.forms import InoutUserForm
+from inout.forms import InoutUserForm,TeamForm,ParticipantForm
 
 from django.contrib.auth.decorators import login_required
 
@@ -30,6 +31,11 @@ from django.views.decorators.clickjacking import xframe_options_exempt
  
 
 def get_short_code():
+    '''
+    This method generates a random string of length 6
+    to serve as a unique id for the team registration process.
+
+    '''
     length = 6
     char = string.ascii_uppercase + string.digits + string.ascii_lowercase
     # if the randomly generated short_id is used then generate next
@@ -40,8 +46,63 @@ def get_short_code():
         except:
             return short_id
 
-def team_view(request):
-    pass
+def home_view(request):
+    ''' 
+    Home view renders the team form to start the registration process 
+    and could probably serve as the home page of the site.
+
+    '''
+    if request.method =='POST':
+        form = TeamForm(request.POST)
+        if form.is_valid():
+            new_team = form.save(commit=False)
+            new_team.url_id = get_short_code()
+            new_team.save()
+
+            ''' 
+            TODO: Send an email to the provided address
+                 with the team url and other instructions.
+            '''
+            return HttpResponseRedirect('/new/'+new_team.url_id)
+
+        else:
+            return render(request,'inout/index.html',{'form':form})
+    form = TeamForm()
+    return render(request,'inout/index.html',{'form':form})
+
+def team_view(request,team_url_id):
+    ''' 
+        Team view should display the option to add a participant to a team if 
+        number of participants is less than 3, it should also display the team status
+        and the details of already registered participants.
+    '''
+
+    participants = Team.objects.get(pk = team_url_id).participants
+    if participants.count() > 3:
+        return render(request,'inout/team_view.html',{'participants':participants})
+    if request.method =='POST':
+        form = ParticipantForm(request.POST,request.FILES)
+        if form.is_valid():
+            new_team_participant = form.save(commit=False)
+            new_team.save()
+            '''
+            TODO : Send an email to the participant confirming the registration and other instructions.
+            '''
+            return HttpResponseRedirect('/new/'+team_url_id)
+
+        else:
+            return render(request,'inout/team_view.html',{'form':form,'participants':participants})
+    form = ParticipantForm()
+    return render(request,'inout/team_view.html',{'form':form,'participants':participants})
+
+
+
+''' 
+
+Below code is for the old registration process involving MLH.
+
+'''
+
 
 
 @xframe_options_exempt
@@ -50,13 +111,13 @@ def Index(request):
     if user.is_superuser:
         return HttpResponseRedirect('/admin/')
     if user.id==None:
-        return render(request,'inout/index.html',{'user':None,'app_status':False})
+        return render(request,'inout/index.old.html',{'user':None,'app_status':False})
     try:
         profile_links=user.inoutuser.inoutuserlink
     except InoutUserLink.DoesNotExist:
         return HttpResponseRedirect('/accounts/profile/')
     inout_user_status=user.inoutuser.application_status
-    return render(request,'inout/index.html',{'user':request.user,'app_status':inout_user_status})
+    return render(request,'inout/index.old.html',{'user':request.user,'app_status':inout_user_status})
 
 @xframe_options_exempt
 def closed(request):

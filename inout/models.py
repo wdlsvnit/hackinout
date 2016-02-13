@@ -115,13 +115,13 @@ class Participant(models.Model):
     twitter_account=models.URLField(blank=True,null=True)
     
     # Participant's resume file will be uploaded to  ./media/resumes/   
-    resume=models.FileField(upload_to='resumes')
+    resume=models.FileField(upload_to='resumes/3/')
     
     # Participant's additional-info (optional)
     additional_info = models.TextField(max_length=500)
 
      # Participant's dietary restrictions (if any) 
-    dietary_restrictions=models.CharField(max_length=50,null=True)
+    dietary_restrictions=models.CharField(max_length=50,null=True,blank=True)
     
     # Participant's special needs
     special_needs=models.CharField(max_length=100,null=True,blank=True)

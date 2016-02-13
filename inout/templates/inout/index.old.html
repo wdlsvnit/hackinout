@@ -1,15 +1,42 @@
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
 {% block content %}
-<section class="registration-form">
-  <div class="form-content">
-<form method="post" action="/new/" enctype="multipart/form-data" class="bootstrap3">
-  {% csrf_token %}
-{{ form|crispy}}
-<input class="btn btn-default" type="submit" value="Submit">
-</form>
-<br><br><br>
-</div>
+<!-- The main landing section -->
+<section class="section__main">
+  <div class="content">
+    <!-- <img src="images/main_inout_logo.png" height="495" width="494" alt="InOut is back"  id = "main_logo"> -->
+    <div id="main_logo"></div>
+    <!-- Location and date -->
+    <div class="location_and_date">
+    <center>
+      INDIA'S PREMIER HACKATHON, EDITION 3.0 <br>9 - 10 APRIL, 2016 @ NIT SURAT
+    </div>
+    </center>
+
+    <!-- All The background circles here  -->
+    <div class="bg_circle__one"></div>
+    <div class="bg_circle__two"></div>
+    <div class="bg_circle__three"></div>
+    <div class="bg_circle__four"></div>
+    <!-- <div class="bg_circle__five"></div> -->
+    <!-- End of all the background circles -->
+    <!-- Apply now button -->
+    {% if user and not app_status %}
+    <div class = "button__applynow">Under review</div>
+    {% elif user and app_status %}
+    <div class = "button__applynow">Approved</div>
+    {% else %}
+    <!-- <div onclick = "location.href='/accounts/login/mlh/'" class = "button__applynow">Coming soon..</div> -->
+    <div class = "button__applynow">#Hacking Soon!!!</div>
+    {% endif %}
+<!--       <div class="share_buttons">
+      <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ffacebook.com%2Finout.svnit&amp;width&amp;layout=button&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=20&amp;appId=349176421957919" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:20px;" allowTransparency="true" height="20" width="47"></iframe>
+      <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fhackinout.co&amp;layout=button&amp;appId=349176421957919" scrolling="no" frameborder="0" style="border:none; overflow:hidden;" allowTransparency="true" width="56" height="20"></iframe>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://hackinout.co" data-text="InOut - India's Premier Hackathon" data-via="inout_svnit" data-count="none" data-hashtags="InOut">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      <a href="https://twitter.com/inout_svnit" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @inout_svnit</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div>
+-->    </div>
 </section>
 {% endblock %}
 

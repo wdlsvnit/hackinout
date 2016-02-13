@@ -21,7 +21,9 @@ class TeamForm(forms.ModelForm):
         'name':"Team Name",
         'email': "Team email",
         }
-
+        error_messages = {
+        'name' : {'max_length':"Team name can be maximum 30 characters.",},
+        }
 class ParticipantForm(forms.ModelForm):
     class Meta:
          model = Participant
@@ -31,12 +33,4 @@ class ParticipantForm(forms.ModelForm):
             'special_needs': forms.Textarea(attrs={'placeholder':"Please mention if you have any special requirements."}),
             'additional_info': forms.Textarea(attrs={'placeholder':"Briefly describe about your past achievements, projects, hacks etc. Also provide links to any other public profiles you have."}),
         }
-        labels = {
-
-        }
-        help_texts = {
-                
-        }
-        error_messages = {
-
-        }
+        
