@@ -118,7 +118,7 @@ def send_team_registration_email(team):
 
     email_template_html = "team_mail_body.html"
     email_template_txt  = "team_mail_body.txt"
-    send_mail(subject,from_email,to_email,email_template_html,email_template_txt,context)
+    send_email(subject,from_email,to_email,email_template_html,email_template_txt,context)
 
 def send_participant_registration_email(participant):
     participant_name = participant.name
@@ -132,9 +132,9 @@ def send_participant_registration_email(participant):
 
     email_template_html = "participant_mail_body.html"
     email_template_txt  = "participant_mail_body.txt"
-    send_mail(subject,from_email,to_email,email_template_html,email_template_txt,context)
+    send_email(subject,from_email,to_email,email_template_html,email_template_txt,context)
 
-def send_mail(subject,from_email,to_email,email_template_html,email_template_txt,context):
+def send_email(subject,from_email,to_email,email_template_html,email_template_txt,context):
     text_content = render_to_string(email_template_txt, context)
     html_content = render_to_string(email_template_html, context)
     headers = {'X-Priority':1}
