@@ -158,5 +158,11 @@ DEFAULT_FROM_EMAIL = 'mail@hackinout.co'
 #EMAIL_PORT = 465
 #EMAIL_USE_SSL = True
 
-MANDRILL_API_KEY = os.environ['MANDRILL_API_KEY']
-EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"
+SPARKPOST_OPTIONS = {
+    'track_opens': True,
+    'track_clicks': True,
+    'transactional': True,
+}
+
+SPARKPOST_API_KEY = os.environ['SPARKPOST_API_KEY']
+EMAIL_BACKEND = 'sparkpost.django.email_backend.SparkPostEmailBackend'
