@@ -43,7 +43,6 @@ INSTALLED_APPS = (
     'inout',
     'crispy_forms',
     'django_object_actions',
-    'djrill',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -169,9 +168,13 @@ DEFAULT_FROM_EMAIL = 'mail@hackinout.co'
 #EMAIL_PORT = 465
 #EMAIL_USE_SSL = True
 
+SPARKPOST_OPTIONS = {
+    'track_opens': True,
+    'track_clicks': True,
+    'transactional': True,
+}
+
+SPARKPOST_API_KEY = os.environ["SPARKPOST_API_KEY"]
 
 
-MANDRILL_API_KEY = os.environ["MANDRILL_API_KEY"]
-
-
-EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"
+EMAIL_BACKEND = 'sparkpost.django.email_backend.SparkPostEmailBackend'
