@@ -30,6 +30,5 @@ urlpatterns = [
     url(r'^$',Index),
     url(r'^new/(?P<team_url_id>(\w{6}))$',team_view),
     url(r'^new$',home_view),
-    
     url(r'^closed/',closed,name='closed')
 ]

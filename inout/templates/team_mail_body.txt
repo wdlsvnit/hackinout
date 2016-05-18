@@ -1,0 +1,4 @@
+Congratulations {{ team_name }}!
+You have successfully registered  your team for InOut.
+Please follow this link for completing participant registration https://hackinout.co/new/{{team_url}} .
+Share the above url with your team members so that they can complete their registration.

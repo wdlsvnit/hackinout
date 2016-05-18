@@ -55,7 +55,10 @@ class Team(models.Model):
 
     # Application status of the Team
     application_status=models.BooleanField(default=False)
-    
+
+    def __str__(self):
+        return self.name+" | "+self.email+" | "+self.registration_date.ctime()+" | "+ self.application_status.__str__()
+     
 
 class Participant(models.Model):
 
@@ -67,7 +70,7 @@ class Participant(models.Model):
     XXLARGE = 'XXL'
 
     # T-shirt size choices
-    TSHIRT_SIZE_CHOICES = ((SMALL,'Small'),(MEDIUM,'Medium'),(XLARGE,'X-Large'),(XXLARGE,'XX-Large'),) 
+    TSHIRT_SIZE_CHOICES = ((SMALL,'Small'),(MEDIUM,'Medium'),(LARGE,'Large'),(XLARGE,'X-Large'),(XXLARGE,'XX-Large'),) 
     
     # Participants first name
     first_name=models.CharField(max_length=25)
@@ -102,6 +105,7 @@ class Participant(models.Model):
     # Participant's Emergency contact details
     emergency_contact_name = models.CharField(max_length=60)
     emergency_contact_phone_number = models.CharField(max_length=10)
+
     # Participant's GitHub Account URL
     github_account=models.URLField()
     

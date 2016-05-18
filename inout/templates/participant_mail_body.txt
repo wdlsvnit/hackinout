@@ -1,0 +1,3 @@
+Congratulations {{ participant_name }}!
+You're successfully registered for InOut.
+We'll get back to you soon and let you know if you're selected.

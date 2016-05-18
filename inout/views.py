@@ -63,6 +63,7 @@ def home_view(request):
             TODO: Send an email to the provided address
                  with the team url and other instructions.
             '''
+            send_team_registration_email(new_team)
             return HttpResponseRedirect('/new/'+new_team.url_id)
 
         else:
@@ -78,16 +79,17 @@ def team_view(request,team_url_id):
     '''
 
     participants = Team.objects.get(pk = team_url_id).participants
-    if participants.count() > 3:
+    if participants.count() >= 3:
         return render(request,'inout/team_view.html',{'participants':participants})
     if request.method =='POST':
         form = ParticipantForm(request.POST,request.FILES)
         if form.is_valid():
             new_team_participant = form.save(commit=False)
-            new_team.save()
+            new_team_participant.save()
             '''
             TODO : Send an email to the participant confirming the registration and other instructions.
             '''
+            send_participant_registration_email(new_team_participant)
             return HttpResponseRedirect('/new/'+team_url_id)
 
         else:
@@ -97,6 +99,47 @@ def team_view(request,team_url_id):
 
 
 
+def send_team_registration_email(team):
+    team_name = team.name
+    team_url  = team.url_id
+    subject = team_name +': Registration successfull !'
+    from_email = "Team InOut <"+settings.DEFAULT_FROM_EMAIL+">"
+    to_email = [ team.email ]
+    context = {
+
+         "team_name": team_name,
+         "team_url" : team_url,
+     }
+
+    email_template_html = "team_mail_body.html"
+    email_template_txt  = "team_mail_body.txt"
+    send_mail(subject,from_email,to_email,email_template_html,email_template_txt,context)
+
+def send_participant_registration_email(participant):
+    participant_name = participant.name
+    subject = participant_name +': Registration successfull !'
+    from_email = "Team InOut <"+settings.DEFAULT_FROM_EMAIL+">"
+    to_email = [ participant.email ]
+    context = {
+
+         "participant_name": participant_name,
+     }
+
+    email_template_html = "participant_mail_body.html"
+    email_template_txt  = "participant_mail_body.txt"
+    send_mail(subject,from_email,to_email,email_template_html,email_template_txt,context)
+
+def send_mail(subject,from_email,to_email,email_template_html,email_template_txt,context):
+    text_content = render_to_string(email_template_txt, context)
+    html_content = render_to_string(email_template_html, context)
+    headers = {'X-Priority':1}
+    if subject and to_email and from_email :
+        try:
+            msg=EmailMultiAlternatives(subject, text_content, from_email, to_email,headers = headers)
+            msg.attach_alternative(html_content,"text/html")
+            msg.send()
+        except BadHeaderError:
+            return HttpResponse('Invalid header found.')
 ''' 
 
 Below code is for the old registration process involving MLH.
