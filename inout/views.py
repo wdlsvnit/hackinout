@@ -21,6 +21,11 @@ from django.views.generic import RedirectView, View
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
+from django.utils.html import format_html
+from django.core.mail import send_mail, BadHeaderError, send_mass_mail,EmailMultiAlternatives
+from django.conf import settings
+from django.template.loader import get_template, render_to_string
+
 
 from inout.models import InoutUser,InoutUserLink, Team
 from inout.forms import InoutUserForm,TeamForm,ParticipantForm
