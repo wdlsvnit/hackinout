@@ -44,7 +44,6 @@ INSTALLED_APPS = (
     'inout',
     'crispy_forms',
     'django_object_actions',
-    'djrill'
 )
 
 INSTALLED_APPS += (

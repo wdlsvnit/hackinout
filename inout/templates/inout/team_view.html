@@ -2,8 +2,18 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <section class="registration-form">
+ <center><h1 class = "title">{{team_name}}</h1>
+ <h4>Registered participants:</h4>
+<ul>
+  {% for participant in participants %}
+    <li>{{participant.full_name}} | {{ participant.email}}</li>
+  {% empty %}
+    <li>No participants have registered in this team yet.</li>
+  {% endfor %}
+</ul>
+</center>
   <div class="form-content">
-<form method="post" action="/new/" enctype="multipart/form-data" class="bootstrap3">
+<form method="post" action="" enctype="multipart/form-data" class="bootstrap3">
   {% csrf_token %}
 {{ form|crispy}}
 <input class="btn btn-default" type="submit" value="Submit">

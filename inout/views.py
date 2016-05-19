@@ -82,14 +82,15 @@ def team_view(request,team_url_id):
         number of participants is less than 3, it should also display the team status
         and the details of already registered participants.
     '''
-
-    participants = Team.objects.get(pk = team_url_id).participants
+    team = Team.objects.get(pk = team_url_id)
+    participants = team.participants.all()
     if participants.count() >= 3:
-        return render(request,'inout/team_view.html',{'participants':participants})
+        return render(request,'inout/team_view.html',{'participants':participants,'team_name':team.name})
     if request.method =='POST':
         form = ParticipantForm(request.POST,request.FILES)
         if form.is_valid():
             new_team_participant = form.save(commit=False)
+            new_team_participant.team = team 
             new_team_participant.save()
             '''
             TODO : Send an email to the participant confirming the registration and other instructions.
@@ -98,9 +99,9 @@ def team_view(request,team_url_id):
             return HttpResponseRedirect('/new/'+team_url_id)
 
         else:
-            return render(request,'inout/team_view.html',{'form':form,'participants':participants})
+            return render(request,'inout/team_view.html',{'form':form,'participants':participants,'team_name':team.name})
     form = ParticipantForm()
-    return render(request,'inout/team_view.html',{'form':form,'participants':participants})
+    return render(request,'inout/team_view.html',{'form':form,'participants':participants,'team_name':team.name})
 
 
 
@@ -121,7 +122,7 @@ def send_team_registration_email(team):
     send_email(subject,from_email,to_email,email_template_html,email_template_txt,context)
 
 def send_participant_registration_email(participant):
-    participant_name = participant.name
+    participant_name = participant.full_name
     subject = participant_name +': Registration successfull !'
     from_email = "Team InOut <"+settings.DEFAULT_FROM_EMAIL+">"
     to_email = [ participant.email ]
