@@ -29,6 +29,8 @@ class ParticipantForm(forms.ModelForm):
          model = Participant
          exclude = ['registration_date','team']
          widgets = {
+            'graduation':forms.TextInput(attrs={'type':'date'}),
+            'date_of_birth':forms.TextInput(attrs={'type':'date'}),
             'dietary_restrictions': forms.Textarea(attrs={'placeholder':"Please mention if you have any food related restrictions."}),
             'special_needs': forms.Textarea(attrs={'placeholder':"Please mention if you have any special requirements."}),
             'additional_info': forms.Textarea(attrs={'placeholder':"Briefly describe about your past achievements, projects, hacks etc. Also provide links to any other public profiles you have."}),

@@ -69,9 +69,17 @@ class Participant(models.Model):
     XLARGE = 'XL'
     XXLARGE = 'XXL'
 
+    # Genders
+    
+    MALE = 'M'
+    FEMALE = 'F'
+
     # T-shirt size choices
     TSHIRT_SIZE_CHOICES = ((SMALL,'Small'),(MEDIUM,'Medium'),(LARGE,'Large'),(XLARGE,'X-Large'),(XXLARGE,'XX-Large'),) 
     
+    # Gender choices 
+    GENDER_CHOICES = ((MALE,'Male'),(FEMALE,'Female'),)
+
     # Participants first name
     first_name=models.CharField(max_length=25)
 
@@ -95,7 +103,7 @@ class Participant(models.Model):
 
     date_of_birth=models.DateField()
     
-    gender=models.CharField(max_length=20)
+    gender=models.CharField(max_length=20,choices = GENDER_CHOICES,default=MALE)
     
     mobile_number=models.CharField(max_length=10)
 
